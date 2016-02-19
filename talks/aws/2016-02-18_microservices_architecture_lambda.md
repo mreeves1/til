@@ -1,18 +1,18 @@
-# Microservices Architecture
-for Web Applications using AWS Lambda and more
-given on 2015-02-19 at AWS Pop-up Loft SF
+# Microservices Architecture for Web Applications using AWS Lambda and more  
 
-Author: Eugene Israti, Technology Partner
-AWS Certified Solutions Architect
-email: eugene@mitocgroup.com
-web: www.mitocgroup.com
+2015-02-19 at AWS Pop-up Loft SF
 
-Goal: never have your website go down
+**Author:**  
+Eugene Israti, Technology Partner  
+AWS Certified Solutions Architect  
+email: eugene@mitocgroup.com  
+web: www.mitocgroup.com  
 
-Web applications challenges:
+Goal: Never have your website go down
+
+Web application challenges:  
 * impact of ddos/dos attack - 60% degradations, 27% outage
 * traffic can be very spiky due to viral content, ddos, etc.
-
 
 ## Web app hosting on AWS:
 
@@ -34,19 +34,19 @@ Web applications challenges:
     * Low-cost
     * Low-maintenance
   * App-tier - docker containers
-    * deploys in seconds
+    * Deploys in seconds
   * Accelerated Backend
     * Write node.js functions and load into Lambda
     * Power up lambda with RESTful endpoints on API Gateway
-    * cache, throttle, meter, versio, etc.
+    * Cache, throttle, meter, versio, etc.
   * DB Tier
-    * care about reads/writes per second
+    * Care about reads/writes per second
     * Suggest dynamo db
       * Schemaless
       * Scale only reads and writes
       * Can be expensive so good idea to implement a queue which means eventual consistency but 50% of cost
     * Can also use RDS Aurora
-      * Releational
+      * Relational
       * MySQL like approach but 5x better
 
 * Demo: Setup Serverless AWS
@@ -77,10 +77,10 @@ Allows you to map endpoints to for instance lambda functions.
 
 ## Microservices
 
-### Tips and tricks?
+### Tips and tricks
 * Setup alarms for all 4 lambda metrics
 * Avoid S3 throttling by integrating s3 -> sns -> lambda
-* beware infinite loops
+* Beware infinite loops (function A calls function B which calls A)
 
 ### Benefits
 * Very shortlived and thus hard to hack
